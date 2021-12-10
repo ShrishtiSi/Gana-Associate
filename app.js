@@ -14,8 +14,6 @@ app.use("/css", express.static(__dirname + "/public/css"));
 
 app.use("/", require("./routes/mainpagesroutes"));
 
-
-
 http.createServer(app).listen(port, () => {
     console.log("port number = " + port);
 })

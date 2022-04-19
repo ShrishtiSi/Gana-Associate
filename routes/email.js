@@ -2,6 +2,7 @@ const express = require("express");
 var router = express.Router();
 let config = require("../config/config.json");
 let transporter = require("../config/mailler");
+const nodemailer = require("nodemailer");
 let ejs = require("ejs");
 
 router.use(express.json());
@@ -24,7 +25,7 @@ router.post("/sendemail", (req, res) => {
         } else {
             console.log(tfile);
             let info = await transporter.sendMail({
-                from: config.uemail, // sender address
+                from: config.uemailid, // sender address
                 to: data.uemail, // list of receivers
                 subject: "Hello ✔", // Subject line
                 text: "Hello world?", // plain text body
